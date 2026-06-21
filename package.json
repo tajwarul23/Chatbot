@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node app.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,12 @@
   "type": "module",
   "dependencies": {
     "@tavily/core": "^0.7.6",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "groq-sdk": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
