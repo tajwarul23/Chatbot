@@ -8,15 +8,15 @@ app.get("/", (req, res) => {
 });
 app.use(express.json());
 
-let conversationHistory = [];
+
 app.post("/api/chat", async (req, res) => {
 try {
-      const { message } = req.body;
+      const { message, threadId } = req.body;
        if (!message?.trim()) {
       return res.status(400).json({ error: "message is required" });
     }
-  const {reply, history} = await generate(message, conversationHistory);
-  conversationHistory = history;
+  const reply = await generate(message, threadId);
+  
   res.status(200).json({ role: reply.role, message:reply.content, success: true });
 } catch (error) {
     console.log("Error in /api/chat", error.message);
